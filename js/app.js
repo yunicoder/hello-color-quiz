@@ -108,6 +108,7 @@ const $button = $doc.getElementById('js-items').getElementsByTagName('button');
 const $nextButton = $doc.getElementById('js-next').getElementsByTagName('button')[0];
 const $items = $doc.getElementById('js-question');
 let butttonLength = $button.length;
+const windowWidth = $window.innerWidth
 
 const quizLength = 5;
 let quizIndex = 0;
@@ -201,7 +202,7 @@ const setupQuiz = () => {
         $button[buttonIndex].alt = buttonColors[buttonIndex].name;
         $button[buttonIndex].textContent = '';
         // $button[buttonIndex].textContent = buttonColors[buttonIndex].colorName;
-        $button[buttonIndex].style.padding = "4rem"
+        // $button[buttonIndex].style.padding = "4rem"
         $button[buttonIndex].style.backgroundColor = buttonColors[buttonIndex].color;
         $button[buttonIndex].style.borderColor = buttonColors[buttonIndex].color;
         buttonIndex++;
@@ -226,7 +227,12 @@ const judge = (e) => {
     let buttonIndex = 0;
     while(buttonIndex < butttonLength){
         $button[buttonIndex].textContent = buttonColors[buttonIndex].name;
-        $button[buttonIndex].style.padding = "2rem";
+        console.log(windowWidth)
+        // スマホの時だけフォントサイズを変更
+        if(windowWidth < 480){
+            $button[buttonIndex].style.fontSize = "medium";
+            $button[buttonIndex].style.padding = ".2rem";
+        }
         buttonIndex++;
     }
 

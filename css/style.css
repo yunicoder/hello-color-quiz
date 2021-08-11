@@ -3,16 +3,20 @@
 
 .navi{
     font-family: "Helvetica Neue";
+    font-size: 2rem;
     background-color: rgb(114, 200, 240);
     color: white;
     text-align: center;
     padding: 20px;
 }
 
-.member-pic{
-    position: relative;
-    padding: 1%;
-    height: 60%;
+#member{
+    height: 50vh;
+}
+
+.square{
+    width : 8vw;
+    height: 8vw; 
 }
 
 .alert {
@@ -20,5 +24,21 @@
  }
 
 .next-question{
-    padding-top: 30px;
+    padding-top: 2px;
+}
+
+@media screen and (max-width: 480px){
+    .navi{
+        font-size: x-large;
+    }
+
+    #member{
+        width: 80vw;
+        height: auto;
+    }
+
+    .square{
+        width : 20vw;
+        height: 20vw; 
+    }
 }
