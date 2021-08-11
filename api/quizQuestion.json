@@ -1,0 +1,30 @@
+[
+    {
+        "question" : "ハロプロ最年長は？",
+        "answers" : [
+            "金澤朋子",
+            "竹内朱莉",
+            "豫風瑠乃",
+            "段原瑠々"
+        ],
+        "correct" : "金澤朋子"
+    },   {
+        "question" : "ハロプロ最年少は？",
+        "answers" : [
+            "上村あかり",
+            "生田衣梨奈",
+            "豫風瑠乃",
+            "段原瑠々"
+        ],
+        "correct" : "豫風瑠乃"
+    },   {
+        "question" : "ハロプロではないのは？",
+        "answers" : [
+            "アンジュルム",
+            "モーニング娘。",
+            "Juice=Juice",
+            "Bitter & Sweet"
+        ],
+        "correct" : "Bitter & Sweet"
+    }
+]

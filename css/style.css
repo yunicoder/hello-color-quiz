@@ -1,0 +1,24 @@
+@charset 'utf-8';
+
+
+.navi{
+    font-family: "Helvetica Neue";
+    background-color: rgb(114, 200, 240);
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+.member-pic{
+    position: relative;
+    padding: 1%;
+    height: 60%;
+}
+
+.alert {
+    text-align:center;
+ }
+
+.next-question{
+    padding-top: 30px;
+}
