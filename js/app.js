@@ -123,7 +123,7 @@ question = arrayRandom(member, quizLength - 3).concat(arrayRandom(red, 1)).conca
 const init = () => {
     setupQuiz();
     preloadImages();
-    
+
     // 各選択肢が選ばれた時の処理
     let handlerIndex = 0;
     while(handlerIndex < butttonLength){
@@ -274,19 +274,38 @@ const goNext = (e) => {
 
 // 最後の結果
 const showResults = () => {
-    $items.style.display = "block"
-    $items.classList = "alert alert-info center-block"
+    $items.style.display = "block";
+    $items.classList = "alert alert-info center-block";
     $items.textContent = '終了！あなたは' + quizLength + '問中' +  score + '問正解' + 'です';
     
     $nextButton.style.display = "none";  // 次の問題へボタンを消す
-    $retryButton.style.display = "block";  // リトライボタンを表示
     $member.style.visibility = 'hidden';
     let buttonIndex = 0;
     while(buttonIndex < butttonLength){
         $button[buttonIndex].style.visibility = 'hidden';
         buttonIndex++;
     }
+
+    // リトライボタンを表示
+    $retryButton.style.display = "block";
+    $retryButton.style.margin = "20px";
+
+    showTweetButton(quizLength, score);
 };
+
+// tweetボタンを表示
+const showTweetButton = (quizLength, score) => {
+    // scripタグを追加
+    var script = document.createElement('script');
+    script.src = 'https://platform.twitter.com/widgets.js';
+    document.body.appendChild(script);
+
+    const $tweetButton = $doc.getElementById('js-tweet').getElementsByTagName('a')[0];
+    console.log($tweetButton)
+    $tweetButton.setAttribute('style', 'display:block;');
+    $tweetButton.setAttribute('data-text', '【ハロプロ メンバーカラーQuiz】\n挑戦結果：' + quizLength + '問中' +  score + '問正解🎉');
+}
+
 
 // リトライ
 const retry = (e) => {
