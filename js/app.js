@@ -215,7 +215,7 @@ const judge = (e) => {
         score++;
         const $items = $doc.getElementById('js-question');
         $items.style.display = "block"
-        $items.classList = "alert alert-success center-block"
+        $items.classList = "alert alert-primary center-block"
         $items.textContent = "正解！！"
     }
     else{
@@ -226,11 +226,11 @@ const judge = (e) => {
 
     let buttonIndex = 0;
     while(buttonIndex < butttonLength){
-        $button[buttonIndex].textContent = buttonColors[buttonIndex].name;
+        $button[buttonIndex].innerText = buttonColors[buttonIndex].name + "\n(" + buttonColors[buttonIndex].colorName + ")";
         console.log(windowWidth)
         // スマホの時だけフォントサイズを変更
         if(windowWidth < 480){
-            $button[buttonIndex].style.fontSize = "medium";
+            $button[buttonIndex].style.fontSize = "1.0rem";
             $button[buttonIndex].style.padding = ".2rem";
         }
         buttonIndex++;

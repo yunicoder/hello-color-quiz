@@ -14,9 +14,16 @@
     height: 50vh;
 }
 
-.square{
-    width : 8vw;
+.btns-flex{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+button.square{
+    width : 10vw;
     height: 8vw; 
+    min-width: 7em;
+    min-height: 5.6em;
 }
 
 .alert {
@@ -29,16 +36,19 @@
 
 @media screen and (max-width: 480px){
     .navi{
-        font-size: x-large;
+        font-size: 1.5rem;
     }
 
     #member{
-        width: 80vw;
+        width: 35vh;
         height: auto;
     }
 
-    .square{
-        width : 20vw;
+    button.square{
+        font-size: 1.5rem;
+        width : 40vw;
         height: 20vw; 
+        min-width: auto;
+        min-height: auto;
     }
 }
