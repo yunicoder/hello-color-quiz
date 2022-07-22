@@ -115,6 +115,8 @@ const quizLength = 5;
 let quizIndex = 0;
 let score = 0;
 
+let isAnswerTime = true;
+
 question = arrayRandom(member, quizLength - 3).concat(arrayRandom(red, 1)).concat(arrayRandom(green, 1)).concat(arrayRandom(blue, 1));
 // question = member;
 
@@ -126,9 +128,12 @@ const init = () => {
 
     // 各選択肢が選ばれた時の処理
     let handlerIndex = 0;
+
     while(handlerIndex < butttonLength){
         $button[handlerIndex].addEventListener('click', (e) => {
-            judge(e);
+            if (isAnswerTime){
+                judge(e);
+            }
         });
         handlerIndex++;
     }
@@ -259,11 +264,14 @@ const judge = (e) => {
         $nextButton.textContent = "結果発表へ";
     }
     $nextButton.style.display = "block";
+
+    isAnswerTime = false // 回答できないようにする
 }
 
 // 次の問題へ
 const goNext = (e) => {
     if(quizIndex < quizLength){
+        isAnswerTime = true // 回答できるようにする
         setupQuiz();
     }
     else{
@@ -301,7 +309,6 @@ const showTweetButton = (quizLength, score) => {
     document.body.appendChild(script);
 
     const $tweetButton = $doc.getElementById('js-tweet').getElementsByTagName('a')[0];
-    console.log($tweetButton)
     $tweetButton.setAttribute('style', 'display:block;');
     $tweetButton.setAttribute('data-text', '【ハロプロ メンバーカラーQuiz】\n挑戦結果：' + quizLength + '問中' +  score + '問正解🎉');
 }
