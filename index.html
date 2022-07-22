@@ -12,7 +12,7 @@
   <meta property="og:url" content="">
   <meta property="og:image" content="">
 
-  <link rel="manifest" href="site.webmanifest">
+  <link rel="manifest" href="site.webmanifest" crossorigin="use-credentials">
   <link rel="apple-touch-icon" href="icon.png">
   <!-- Place favicon.ico in the root directory -->
 
@@ -29,8 +29,13 @@
   </h2>
   <div class="container">
     <div id="js-question" class="alert center-block" role="alert" style="display:none;"></div>
+    
+    <div id="js-retry" class="d-flex justify-content-center">
+      <button type="button" class="btn btn-outline-primary" style="display:none;">もう一度</button>
+    </div>
+    
 
-    <img id="member" src="./img/JuiceJuice/dambara.jpg" class="rounded mx-auto d-block">
+    <img id="member" src="" class="rounded mx-auto d-block">
 
     <div id="js-items" class="btns-flex justify-content-center">
       <div class="m-2">

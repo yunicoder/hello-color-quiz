@@ -106,6 +106,7 @@ const $doc = document;
 const $member = $doc.getElementById('member');
 const $button = $doc.getElementById('js-items').getElementsByTagName('button');
 const $nextButton = $doc.getElementById('js-next').getElementsByTagName('button')[0];
+const $retryButton = $doc.getElementById('js-retry').getElementsByTagName('button')[0];
 const $items = $doc.getElementById('js-question');
 let butttonLength = $button.length;
 const windowWidth = $window.innerWidth
@@ -121,6 +122,7 @@ question = arrayRandom(member, quizLength - 3).concat(arrayRandom(red, 1)).conca
 // init
 const init = () => {
     setupQuiz();
+    preloadImages();
     
     // 各選択肢が選ばれた時の処理
     let handlerIndex = 0;
@@ -135,6 +137,20 @@ const init = () => {
     $nextButton.addEventListener('click', (e) => {
         goNext(e);
     });
+
+
+    // リトライボタンが押された時
+    $retryButton.addEventListener('click', (e) => {
+        retry(e);
+    });
+}
+
+// 画像のプリロード
+function preloadImages() {
+    for(let i = 0; i < member.length; i++){
+        var img = document.createElement('img');
+        img.src = member[i]["memberUrl"];
+    }
 }
 
 // 重複なしランダム整数生成
@@ -227,7 +243,6 @@ const judge = (e) => {
     let buttonIndex = 0;
     while(buttonIndex < butttonLength){
         $button[buttonIndex].innerText = buttonColors[buttonIndex].name + "\n(" + buttonColors[buttonIndex].colorName + ")";
-        console.log(windowWidth)
         // スマホの時だけフォントサイズを変更
         if(windowWidth < 480){
             $button[buttonIndex].style.fontSize = "1.0rem";
@@ -264,6 +279,7 @@ const showResults = () => {
     $items.textContent = '終了！あなたは' + quizLength + '問中' +  score + '問正解' + 'です';
     
     $nextButton.style.display = "none";  // 次の問題へボタンを消す
+    $retryButton.style.display = "block";  // リトライボタンを表示
     $member.style.visibility = 'hidden';
     let buttonIndex = 0;
     while(buttonIndex < butttonLength){
@@ -271,7 +287,10 @@ const showResults = () => {
         buttonIndex++;
     }
 };
-  
 
+// リトライ
+const retry = (e) => {
+    window.location.href = './index.html'; // 最初のページへ
+}
 
 init();
